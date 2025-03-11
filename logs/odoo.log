@@ -1,0 +1,305 @@
+2025-03-11 00:12:22,447 1 INFO ? odoo: Odoo version 18.0-20250218 
+2025-03-11 00:12:22,449 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2025-03-11 00:12:22,449 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/var/lib/odoo/addons/18.0', '/mnt/extra-addons'] 
+2025-03-11 00:12:22,450 1 INFO ? odoo: database: odoo@db:5432 
+2025-03-11 00:12:22,566 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2025-03-11 00:12:22,572 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/local/bin/wkhtmltoimage 
+2025-03-11 00:12:22,711 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 35e8a3ad19ca:8069 
+2025-03-11 00:12:22,733 1 INFO odoo odoo.modules.loading: init db 
+2025-03-11 00:12:23,815 1 INFO odoo odoo.modules.loading: loading 1 modules... 
+2025-03-11 00:12:23,816 1 INFO odoo odoo.modules.loading: Loading module base (1/1) 
+2025-03-11 00:12:23,837 1 INFO odoo odoo.modules.registry: module base: creating or updating database tables 
+2025-03-11 00:12:24,258 1 INFO odoo odoo.models: Prepare computation of ir.module.module.menus_by_module 
+2025-03-11 00:12:24,259 1 INFO odoo odoo.models: Prepare computation of ir.module.module.reports_by_module 
+2025-03-11 00:12:24,260 1 INFO odoo odoo.models: Prepare computation of ir.module.module.views_by_module 
+2025-03-11 00:12:24,405 1 INFO odoo odoo.models: Prepare computation of res.partner.user_id 
+2025-03-11 00:12:24,405 1 INFO odoo odoo.models: Prepare computation of res.partner.commercial_partner_id 
+2025-03-11 00:12:24,405 1 INFO odoo odoo.models: Prepare computation of res.partner.complete_name 
+2025-03-11 00:12:24,406 1 INFO odoo odoo.models: Prepare computation of res.partner.company_registry 
+2025-03-11 00:12:24,406 1 INFO odoo odoo.models: Prepare computation of res.partner.commercial_company_name 
+2025-03-11 00:12:24,406 1 INFO odoo odoo.models: Prepare computation of res.partner.partner_share 
+2025-03-11 00:12:24,446 1 INFO odoo odoo.models: Prepare computation of res.currency.decimal_places 
+2025-03-11 00:12:24,477 1 INFO odoo odoo.models: Prepare computation of res.company.uses_default_logo 
+2025-03-11 00:12:24,477 1 INFO odoo odoo.models: Prepare computation of res.company.logo_web 
+2025-03-11 00:12:24,481 1 INFO odoo odoo.models: Computing parent_path for table res_company... 
+2025-03-11 00:12:24,511 1 INFO odoo odoo.models: Prepare computation of res.users.signature 
+2025-03-11 00:12:24,512 1 INFO odoo odoo.models: Prepare computation of res.users.share 
+2025-03-11 00:12:25,836 1 INFO odoo odoo.modules.loading: loading base/data/res_bank.xml 
+2025-03-11 00:12:25,842 1 INFO odoo odoo.modules.loading: loading base/data/res.lang.csv 
+2025-03-11 00:12:25,878 1 INFO odoo odoo.modules.loading: loading base/data/res_lang_data.xml 
+2025-03-11 00:12:25,913 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_data.xml 
+2025-03-11 00:12:25,958 1 INFO odoo odoo.modules.loading: loading base/data/res_currency_data.xml 
+2025-03-11 00:12:26,354 1 INFO odoo odoo.modules.loading: loading base/data/res_company_data.xml 
+2025-03-11 00:12:26,361 1 INFO odoo odoo.modules.loading: loading base/data/res_users_data.xml 
+2025-03-11 00:12:27,294 1 INFO odoo odoo.modules.loading: loading base/data/report_paperformat_data.xml 
+2025-03-11 00:12:27,301 1 INFO odoo odoo.modules.loading: loading base/data/res_country_data.xml 
+2025-03-11 00:12:27,624 1 INFO odoo odoo.modules.loading: loading base/data/ir_demo_data.xml 
+2025-03-11 00:12:27,634 1 INFO odoo odoo.modules.loading: loading base/security/base_groups.xml 
+2025-03-11 00:12:27,858 1 INFO odoo odoo.modules.loading: loading base/security/base_security.xml 
+2025-03-11 00:12:27,970 1 INFO odoo odoo.modules.loading: loading base/views/base_menus.xml 
+2025-03-11 00:12:28,022 1 INFO odoo odoo.modules.loading: loading base/views/decimal_precision_views.xml 
+2025-03-11 00:12:28,036 1 INFO odoo odoo.modules.loading: loading base/views/res_config_views.xml 
+2025-03-11 00:12:28,042 1 INFO odoo odoo.modules.loading: loading base/data/res.country.state.csv 
+2025-03-11 00:12:28,648 1 INFO odoo odoo.modules.loading: loading base/views/ir_actions_views.xml 
+2025-03-11 00:12:28,757 1 INFO odoo odoo.modules.loading: loading base/views/ir_asset_views.xml 
+2025-03-11 00:12:28,771 1 INFO odoo odoo.modules.loading: loading base/views/ir_config_parameter_views.xml 
+2025-03-11 00:12:28,786 1 INFO odoo odoo.modules.loading: loading base/views/ir_cron_views.xml 
+2025-03-11 00:12:28,808 1 INFO odoo odoo.modules.loading: loading base/views/ir_cron_trigger_views.xml 
+2025-03-11 00:12:28,823 1 INFO odoo odoo.modules.loading: loading base/views/ir_filters_views.xml 
+2025-03-11 00:12:28,839 1 INFO odoo odoo.modules.loading: loading base/views/ir_mail_server_views.xml 
+2025-03-11 00:12:28,855 1 INFO odoo odoo.modules.loading: loading base/views/ir_model_views.xml 
+2025-03-11 00:12:28,969 1 INFO odoo odoo.modules.loading: loading base/views/ir_attachment_views.xml 
+2025-03-11 00:12:28,986 1 INFO odoo odoo.modules.loading: loading base/views/ir_rule_views.xml 
+2025-03-11 00:12:29,003 1 INFO odoo odoo.modules.loading: loading base/views/ir_sequence_views.xml 
+2025-03-11 00:12:29,021 1 INFO odoo odoo.modules.loading: loading base/views/ir_ui_menu_views.xml 
+2025-03-11 00:12:29,037 1 INFO odoo odoo.modules.loading: loading base/views/ir_ui_view_views.xml 
+2025-03-11 00:12:29,074 1 INFO odoo odoo.modules.loading: loading base/views/ir_default_views.xml 
+2025-03-11 00:12:29,088 1 INFO odoo odoo.modules.loading: loading base/data/ir_config_parameter_data.xml 
+2025-03-11 00:12:29,091 1 INFO odoo odoo.modules.loading: loading base/data/ir_cron_data.xml 
+2025-03-11 00:12:29,101 1 INFO odoo odoo.modules.loading: loading base/report/ir_model_report.xml 
+2025-03-11 00:12:29,105 1 INFO odoo odoo.modules.loading: loading base/report/ir_model_templates.xml 
+2025-03-11 00:12:29,112 1 INFO odoo odoo.modules.loading: loading base/views/ir_logging_views.xml 
+2025-03-11 00:12:29,127 1 INFO odoo odoo.modules.loading: loading base/views/ir_qweb_widget_templates.xml 
+2025-03-11 00:12:29,136 1 INFO odoo odoo.modules.loading: loading base/views/ir_module_views.xml 
+2025-03-11 00:12:29,176 1 INFO odoo odoo.modules.loading: loading base/data/ir_module_category_data.xml 
+2025-03-11 00:12:29,229 1 INFO odoo odoo.modules.loading: loading base/data/ir_module_module.xml 
+2025-03-11 00:12:29,274 1 INFO odoo odoo.modules.loading: loading base/report/ir_module_reports.xml 
+2025-03-11 00:12:29,278 1 INFO odoo odoo.modules.loading: loading base/report/ir_module_report_templates.xml 
+2025-03-11 00:12:29,283 1 INFO odoo odoo.modules.loading: loading base/wizard/base_module_update_views.xml 
+2025-03-11 00:12:29,297 1 INFO odoo odoo.modules.loading: loading base/wizard/base_language_install_views.xml 
+2025-03-11 00:12:29,307 1 INFO odoo odoo.modules.loading: loading base/wizard/base_import_language_views.xml 
+2025-03-11 00:12:29,317 1 INFO odoo odoo.modules.loading: loading base/wizard/base_module_upgrade_views.xml 
+2025-03-11 00:12:29,333 1 INFO odoo odoo.modules.loading: loading base/wizard/base_module_uninstall_views.xml 
+2025-03-11 00:12:29,341 1 INFO odoo odoo.modules.loading: loading base/wizard/base_export_language_views.xml 
+2025-03-11 00:12:29,352 1 INFO odoo odoo.modules.loading: loading base/wizard/base_partner_merge_views.xml 
+2025-03-11 00:12:29,365 1 INFO odoo odoo.modules.loading: loading base/data/ir_demo_failure_data.xml 
+2025-03-11 00:12:29,377 1 INFO odoo odoo.modules.loading: loading base/views/ir_profile_views.xml 
+2025-03-11 00:12:29,395 1 INFO odoo odoo.modules.loading: loading base/views/res_company_views.xml 
+2025-03-11 00:12:29,413 1 INFO odoo odoo.modules.loading: loading base/views/res_lang_views.xml 
+2025-03-11 00:12:29,431 1 INFO odoo odoo.modules.loading: loading base/views/res_partner_views.xml 
+2025-03-11 00:12:29,517 1 INFO odoo odoo.modules.loading: loading base/views/res_bank_views.xml 
+2025-03-11 00:12:29,544 1 INFO odoo odoo.modules.loading: loading base/views/res_country_views.xml 
+2025-03-11 00:12:29,576 1 INFO odoo odoo.modules.loading: loading base/views/res_currency_views.xml 
+2025-03-11 00:12:29,607 1 INFO odoo odoo.modules.loading: loading base/views/res_users_views.xml 
+2025-03-11 00:12:29,704 1 INFO odoo odoo.modules.loading: loading base/views/res_device_views.xml 
+2025-03-11 00:12:29,720 1 INFO odoo odoo.modules.loading: loading base/views/res_users_identitycheck_views.xml 
+2025-03-11 00:12:29,726 1 INFO odoo odoo.modules.loading: loading base/views/res_config_settings_views.xml 
+2025-03-11 00:12:29,733 1 INFO odoo odoo.modules.loading: loading base/views/report_paperformat_views.xml 
+2025-03-11 00:12:29,752 1 INFO odoo odoo.modules.loading: loading base/security/ir.model.access.csv 
+2025-03-11 00:12:29,862 1 INFO odoo odoo.modules.loading: Module base: loading demo 
+2025-03-11 00:12:29,863 1 INFO odoo odoo.modules.loading: loading base/data/res_users_demo.xml 
+2025-03-11 00:12:31,195 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_bank_demo.xml 
+2025-03-11 00:12:31,201 1 INFO odoo odoo.modules.loading: loading base/data/res_currency_demo.xml 
+2025-03-11 00:12:31,205 1 INFO odoo odoo.modules.loading: loading base/data/res_currency_rate_demo.xml 
+2025-03-11 00:12:31,394 1 INFO odoo odoo.modules.loading: loading base/data/res_bank_demo.xml 
+2025-03-11 00:12:31,399 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_demo.xml 
+2025-03-11 00:12:31,534 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_image_demo.xml 
+2025-03-11 00:12:31,903 1 INFO odoo odoo.modules.loading: Module base loaded in 8.09s, 9250 queries (+9250 other) 
+2025-03-11 00:12:31,904 1 INFO odoo odoo.modules.loading: 1 modules loaded in 8.09s, 9250 queries (+9250 extra) 
+2025-03-11 00:12:31,920 1 INFO odoo odoo.modules.loading: updating modules list 
+2025-03-11 00:12:31,921 1 INFO odoo odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2025-03-11 00:12:32,547 1 INFO odoo odoo.modules.loading: loading 12 modules... 
+2025-03-11 00:12:32,548 1 INFO odoo odoo.modules.loading: Loading module web (2/12) 
+2025-03-11 00:12:32,571 1 INFO odoo odoo.modules.registry: module web: creating or updating database tables 
+2025-03-11 00:12:32,980 1 INFO odoo odoo.modules.loading: loading web/security/ir.model.access.csv 
+2025-03-11 00:12:32,989 1 INFO odoo odoo.modules.loading: loading web/views/webclient_templates.xml 
+2025-03-11 00:12:33,032 1 INFO odoo odoo.modules.loading: loading web/views/report_templates.xml 
+2025-03-11 00:12:33,112 1 INFO odoo odoo.modules.loading: loading web/views/base_document_layout_views.xml 
+2025-03-11 00:12:33,124 1 INFO odoo odoo.modules.loading: loading web/views/partner_view.xml 
+2025-03-11 00:12:33,130 1 INFO odoo odoo.modules.loading: loading web/views/speedscope_template.xml 
+2025-03-11 00:12:33,135 1 INFO odoo odoo.modules.loading: loading web/views/neutralize_views.xml 
+2025-03-11 00:12:33,140 1 INFO odoo odoo.modules.loading: loading web/data/ir_attachment.xml 
+2025-03-11 00:12:33,145 1 INFO odoo odoo.modules.loading: loading web/data/report_layout.xml 
+2025-03-11 00:12:33,186 1 INFO odoo odoo.modules.loading: Module web loaded in 0.64s, 1097 queries (+1097 other) 
+2025-03-11 00:12:33,186 1 INFO odoo odoo.modules.loading: Loading module auth_totp (3/12) 
+2025-03-11 00:12:33,220 1 INFO odoo odoo.modules.registry: module auth_totp: creating or updating database tables 
+2025-03-11 00:12:33,275 1 INFO odoo odoo.modules.loading: loading auth_totp/security/security.xml 
+2025-03-11 00:12:33,296 1 INFO odoo odoo.modules.loading: loading auth_totp/security/ir.model.access.csv 
+2025-03-11 00:12:33,304 1 INFO odoo odoo.modules.loading: loading auth_totp/data/ir_action_data.xml 
+2025-03-11 00:12:33,311 1 INFO odoo odoo.modules.loading: loading auth_totp/views/res_users_views.xml 
+2025-03-11 00:12:33,337 1 INFO odoo odoo.modules.loading: loading auth_totp/views/templates.xml 
+2025-03-11 00:12:33,341 1 INFO odoo odoo.modules.loading: loading auth_totp/wizard/auth_totp_wizard_views.xml 
+2025-03-11 00:12:33,361 1 INFO odoo odoo.modules.loading: Module auth_totp loaded in 0.17s, 188 queries (+188 other) 
+2025-03-11 00:12:33,362 1 INFO odoo odoo.modules.loading: Loading module base_import (4/12) 
+2025-03-11 00:12:33,560 1 INFO odoo odoo.modules.registry: module base_import: creating or updating database tables 
+2025-03-11 00:12:33,984 1 INFO odoo odoo.modules.loading: loading base_import/security/ir.model.access.csv 
+2025-03-11 00:12:34,002 1 INFO odoo odoo.modules.loading: Module base_import loaded in 0.64s, 874 queries (+874 other) 
+2025-03-11 00:12:34,002 1 INFO odoo odoo.modules.loading: Loading module base_import_module (5/12) 
+2025-03-11 00:12:34,024 1 INFO odoo odoo.modules.registry: module base_import_module: creating or updating database tables 
+2025-03-11 00:12:34,086 1 INFO odoo odoo.modules.loading: loading base_import_module/security/ir.model.access.csv 
+2025-03-11 00:12:34,094 1 INFO odoo odoo.modules.loading: loading base_import_module/views/base_import_module_view.xml 
+2025-03-11 00:12:34,110 1 INFO odoo odoo.modules.loading: loading base_import_module/views/ir_module_views.xml 
+2025-03-11 00:12:34,147 1 INFO odoo odoo.modules.loading: Module base_import_module loaded in 0.15s, 164 queries (+164 other) 
+2025-03-11 00:12:34,148 1 INFO odoo odoo.modules.loading: Loading module base_setup (6/12) 
+2025-03-11 00:12:34,168 1 INFO odoo odoo.modules.registry: module base_setup: creating or updating database tables 
+2025-03-11 00:12:34,210 1 INFO odoo odoo.modules.loading: loading base_setup/data/base_setup_data.xml 
+2025-03-11 00:12:34,216 1 INFO odoo odoo.modules.loading: loading base_setup/views/res_config_settings_views.xml 
+2025-03-11 00:12:34,244 1 INFO odoo odoo.modules.loading: loading base_setup/views/res_partner_views.xml 
+2025-03-11 00:12:34,262 1 INFO odoo odoo.modules.loading: Module base_setup loaded in 0.11s, 150 queries (+150 other) 
+2025-03-11 00:12:34,262 1 INFO odoo odoo.modules.loading: Loading module bus (7/12) 
+2025-03-11 00:12:34,294 1 INFO odoo odoo.modules.registry: module bus: creating or updating database tables 
+2025-03-11 00:12:34,390 1 INFO odoo odoo.modules.loading: loading bus/security/ir.model.access.csv 
+2025-03-11 00:12:34,408 1 INFO odoo odoo.modules.loading: Module bus loaded in 0.15s, 165 queries (+165 other) 
+2025-03-11 00:12:34,408 1 INFO odoo odoo.modules.loading: Loading module web_tour (8/12) 
+2025-03-11 00:12:34,431 1 INFO odoo odoo.modules.registry: module web_tour: creating or updating database tables 
+2025-03-11 00:12:34,436 1 INFO odoo odoo.models: Prepare computation of res.users.tour_enabled 
+2025-03-11 00:12:34,506 1 INFO odoo odoo.modules.loading: loading web_tour/security/ir.model.access.csv 
+2025-03-11 00:12:34,516 1 INFO odoo odoo.modules.loading: loading web_tour/views/tour_views.xml 
+2025-03-11 00:12:34,540 1 INFO odoo odoo.modules.loading: loading web_tour/views/res_users_views.xml 
+2025-03-11 00:12:34,566 1 INFO odoo odoo.modules.loading: Module web_tour loaded in 0.16s, 188 queries (+188 other) 
+2025-03-11 00:12:34,566 1 INFO odoo odoo.modules.loading: Loading module html_editor (9/12) 
+2025-03-11 00:12:34,680 1 INFO odoo odoo.modules.registry: module html_editor: creating or updating database tables 
+2025-03-11 00:12:34,714 1 INFO odoo odoo.modules.loading: Module html_editor loaded in 0.15s, 42 queries (+42 other) 
+2025-03-11 00:12:34,714 1 INFO odoo odoo.modules.loading: Loading module iap (10/12) 
+2025-03-11 00:12:34,733 1 INFO odoo odoo.modules.registry: module iap: creating or updating database tables 
+2025-03-11 00:12:34,803 1 INFO odoo odoo.modules.loading: loading iap/data/services.xml 
+2025-03-11 00:12:34,808 1 INFO odoo odoo.modules.loading: loading iap/security/ir.model.access.csv 
+2025-03-11 00:12:34,819 1 INFO odoo odoo.modules.loading: loading iap/security/ir_rule.xml 
+2025-03-11 00:12:34,826 1 INFO odoo odoo.modules.loading: loading iap/views/iap_views.xml 
+2025-03-11 00:12:34,848 1 INFO odoo odoo.modules.loading: loading iap/views/res_config_settings.xml 
+2025-03-11 00:12:34,869 1 INFO odoo odoo.modules.loading: Module iap loaded in 0.15s, 183 queries (+183 other) 
+2025-03-11 00:12:34,869 1 INFO odoo odoo.modules.loading: Loading module web_editor (11/12) 
+2025-03-11 00:12:34,917 1 INFO odoo odoo.modules.registry: module web_editor: creating or updating database tables 
+2025-03-11 00:12:35,397 1 INFO odoo odoo.modules.loading: loading web_editor/security/ir.model.access.csv 
+2025-03-11 00:12:35,406 1 INFO odoo odoo.modules.loading: loading web_editor/data/editor_assets.xml 
+2025-03-11 00:12:35,411 1 INFO odoo odoo.modules.loading: loading web_editor/views/editor.xml 
+2025-03-11 00:12:35,423 1 INFO odoo odoo.modules.loading: loading web_editor/views/snippets.xml 
+2025-03-11 00:12:35,468 1 INFO odoo odoo.modules.loading: Module web_editor loaded in 0.60s, 1004 queries (+1004 other) 
+2025-03-11 00:12:35,468 1 INFO odoo odoo.modules.loading: Loading module web_unsplash (12/12) 
+2025-03-11 00:12:35,491 1 INFO odoo odoo.modules.registry: module web_unsplash: creating or updating database tables 
+2025-03-11 00:12:35,531 1 INFO odoo odoo.modules.loading: loading web_unsplash/views/res_config_settings_view.xml 
+2025-03-11 00:12:35,557 1 INFO odoo odoo.modules.loading: Module web_unsplash loaded in 0.09s, 98 queries (+98 other) 
+2025-03-11 00:12:35,557 1 INFO odoo odoo.modules.loading: 12 modules loaded in 3.01s, 4153 queries (+4153 extra) 
+2025-03-11 00:12:35,777 1 INFO odoo odoo.modules.loading: Modules loaded. 
+2025-03-11 00:12:35,781 1 INFO odoo odoo.modules.registry: Registry changed, signaling through the database 
+2025-03-11 00:12:35,783 1 INFO odoo odoo.modules.registry: Registry loaded in 13.070s 
+2025-03-11 00:12:35,795 1 INFO odoo odoo.addons.base.models.ir_http: Generating routing map for key None 
+2025-03-11 00:12:35,809 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:12:35] "GET / HTTP/1.1" 303 - 5 0.002 0.030
+2025-03-11 00:12:35,821 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:12:35] "GET /odoo HTTP/1.1" 303 - 4 0.001 0.003
+2025-03-11 00:12:35,972 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:12:35] "GET /web/login?redirect=/odoo? HTTP/1.1" 200 - 53 0.015 0.131
+2025-03-11 00:12:36,113 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:12:36] "GET /web/binary/company_logo HTTP/1.1" 200 - 5 0.002 0.122
+2025-03-11 00:12:36,136 1 INFO odoo odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/944fe34/web.assets_frontend_minimal.min.js (id:194) 
+2025-03-11 00:12:36,141 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:12:36] "GET /web/assets/944fe34/web.assets_frontend_minimal.min.js HTTP/1.1" 200 - 15 0.005 0.018
+2025-03-11 00:12:36,924 1 INFO odoo odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/2257de3/web.assets_frontend.min.css (id:195) 
+2025-03-11 00:12:36,928 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:12:36] "GET /web/assets/2257de3/web.assets_frontend.min.css HTTP/1.1" 200 - 12 0.018 0.922
+2025-03-11 00:12:37,517 1 INFO odoo odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9adef96/web.assets_frontend_lazy.min.js (id:196) 
+2025-03-11 00:12:37,520 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:12:37] "GET /web/assets/9adef96/web.assets_frontend_lazy.min.js HTTP/1.1" 200 - 12 0.003 0.548
+2025-03-11 00:12:37,612 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:12:37] "GET /web/webclient/translations/1741651957599 HTTP/1.1" 200 - 5 0.001 0.011
+2025-03-11 00:13:06,854 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:13:06] "GET /web/service-worker.js HTTP/1.1" 200 - 5 0.002 0.005
+2025-03-11 00:13:06,881 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:13:06] "GET /odoo/offline HTTP/1.1" 200 - 13 0.004 0.014
+2025-03-11 00:13:11,567 1 INFO odoo odoo.service.server: Initiating shutdown 
+2025-03-11 00:13:11,568 1 INFO odoo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-03-11 00:13:11,871 1 INFO odoo odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 4 connections  
+2025-03-11 00:13:38,465 1 INFO ? odoo: Odoo version 18.0-20250218 
+2025-03-11 00:13:38,466 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2025-03-11 00:13:38,466 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/var/lib/odoo/addons/18.0', '/mnt/extra-addons'] 
+2025-03-11 00:13:38,466 1 INFO ? odoo: database: odoo@db:5432 
+2025-03-11 00:13:38,647 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2025-03-11 00:13:38,683 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/local/bin/wkhtmltoimage 
+2025-03-11 00:13:38,907 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 7084e867a68c:8069 
+2025-03-11 00:13:38,964 1 INFO odoo odoo.modules.loading: loading 1 modules... 
+2025-03-11 00:13:38,965 1 INFO odoo odoo.modules.loading: Loading module base (1/1) 
+2025-03-11 00:13:38,986 1 INFO odoo odoo.modules.registry: module base: creating or updating database tables 
+2025-03-11 00:13:39,448 1 INFO odoo odoo.modules.loading: loading base/data/res_bank.xml 
+2025-03-11 00:13:39,452 1 INFO odoo odoo.modules.loading: loading base/data/res.lang.csv 
+2025-03-11 00:13:39,615 1 INFO odoo odoo.modules.loading: loading base/data/res_lang_data.xml 
+2025-03-11 00:13:39,637 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_data.xml 
+2025-03-11 00:13:39,698 1 INFO odoo odoo.modules.loading: loading base/data/res_currency_data.xml 
+2025-03-11 00:13:40,111 1 INFO odoo odoo.modules.loading: loading base/data/res_company_data.xml 
+2025-03-11 00:13:40,119 1 INFO odoo odoo.modules.loading: loading base/data/res_users_data.xml 
+2025-03-11 00:13:41,126 1 INFO odoo odoo.modules.loading: loading base/data/report_paperformat_data.xml 
+2025-03-11 00:13:41,131 1 INFO odoo odoo.modules.loading: loading base/data/res_country_data.xml 
+2025-03-11 00:13:41,376 1 INFO odoo odoo.modules.loading: loading base/data/ir_demo_data.xml 
+2025-03-11 00:13:41,392 1 INFO odoo odoo.modules.loading: loading base/security/base_groups.xml 
+2025-03-11 00:13:41,731 1 INFO odoo odoo.modules.loading: loading base/security/base_security.xml 
+2025-03-11 00:13:41,840 1 INFO odoo odoo.modules.loading: loading base/views/base_menus.xml 
+2025-03-11 00:13:41,890 1 INFO odoo odoo.modules.loading: loading base/views/decimal_precision_views.xml 
+2025-03-11 00:13:41,905 1 INFO odoo odoo.modules.loading: loading base/views/res_config_views.xml 
+2025-03-11 00:13:41,911 1 INFO odoo odoo.modules.loading: loading base/data/res.country.state.csv 
+2025-03-11 00:13:42,550 1 INFO odoo odoo.modules.loading: loading base/views/ir_actions_views.xml 
+2025-03-11 00:13:42,667 1 INFO odoo odoo.modules.loading: loading base/views/ir_asset_views.xml 
+2025-03-11 00:13:42,685 1 INFO odoo odoo.modules.loading: loading base/views/ir_config_parameter_views.xml 
+2025-03-11 00:13:42,701 1 INFO odoo odoo.modules.loading: loading base/views/ir_cron_views.xml 
+2025-03-11 00:13:42,726 1 INFO odoo odoo.modules.loading: loading base/views/ir_cron_trigger_views.xml 
+2025-03-11 00:13:42,742 1 INFO odoo odoo.modules.loading: loading base/views/ir_filters_views.xml 
+2025-03-11 00:13:42,758 1 INFO odoo odoo.modules.loading: loading base/views/ir_mail_server_views.xml 
+2025-03-11 00:13:42,777 1 INFO odoo odoo.modules.loading: loading base/views/ir_model_views.xml 
+2025-03-11 00:13:42,903 1 INFO odoo odoo.modules.loading: loading base/views/ir_attachment_views.xml 
+2025-03-11 00:13:42,921 1 INFO odoo odoo.modules.loading: loading base/views/ir_rule_views.xml 
+2025-03-11 00:13:42,943 1 INFO odoo odoo.modules.loading: loading base/views/ir_sequence_views.xml 
+2025-03-11 00:13:42,962 1 INFO odoo odoo.modules.loading: loading base/views/ir_ui_menu_views.xml 
+2025-03-11 00:13:42,979 1 INFO odoo odoo.modules.loading: loading base/views/ir_ui_view_views.xml 
+2025-03-11 00:13:43,019 1 INFO odoo odoo.modules.loading: loading base/views/ir_default_views.xml 
+2025-03-11 00:13:43,038 1 INFO odoo odoo.modules.loading: loading base/data/ir_config_parameter_data.xml 
+2025-03-11 00:13:43,041 1 INFO odoo odoo.modules.loading: loading base/data/ir_cron_data.xml 
+2025-03-11 00:13:43,052 1 INFO odoo odoo.modules.loading: loading base/report/ir_model_report.xml 
+2025-03-11 00:13:43,056 1 INFO odoo odoo.modules.loading: loading base/report/ir_model_templates.xml 
+2025-03-11 00:13:43,063 1 INFO odoo odoo.modules.loading: loading base/views/ir_logging_views.xml 
+2025-03-11 00:13:43,079 1 INFO odoo odoo.modules.loading: loading base/views/ir_qweb_widget_templates.xml 
+2025-03-11 00:13:43,094 1 INFO odoo odoo.modules.loading: loading base/views/ir_module_views.xml 
+2025-03-11 00:13:43,145 1 INFO odoo odoo.modules.loading: loading base/data/ir_module_category_data.xml 
+2025-03-11 00:13:43,313 1 INFO odoo odoo.modules.loading: loading base/data/ir_module_module.xml 
+2025-03-11 00:13:43,343 1 INFO odoo odoo.modules.loading: loading base/report/ir_module_reports.xml 
+2025-03-11 00:13:43,346 1 INFO odoo odoo.modules.loading: loading base/report/ir_module_report_templates.xml 
+2025-03-11 00:13:43,352 1 INFO odoo odoo.modules.loading: loading base/wizard/base_module_update_views.xml 
+2025-03-11 00:13:43,366 1 INFO odoo odoo.modules.loading: loading base/wizard/base_language_install_views.xml 
+2025-03-11 00:13:43,376 1 INFO odoo odoo.modules.loading: loading base/wizard/base_import_language_views.xml 
+2025-03-11 00:13:43,387 1 INFO odoo odoo.modules.loading: loading base/wizard/base_module_upgrade_views.xml 
+2025-03-11 00:13:43,403 1 INFO odoo odoo.modules.loading: loading base/wizard/base_module_uninstall_views.xml 
+2025-03-11 00:13:43,413 1 INFO odoo odoo.modules.loading: loading base/wizard/base_export_language_views.xml 
+2025-03-11 00:13:43,423 1 INFO odoo odoo.modules.loading: loading base/wizard/base_partner_merge_views.xml 
+2025-03-11 00:13:43,436 1 INFO odoo odoo.modules.loading: loading base/data/ir_demo_failure_data.xml 
+2025-03-11 00:13:43,449 1 INFO odoo odoo.modules.loading: loading base/views/ir_profile_views.xml 
+2025-03-11 00:13:43,469 1 INFO odoo odoo.modules.loading: loading base/views/res_company_views.xml 
+2025-03-11 00:13:43,490 1 INFO odoo odoo.modules.loading: loading base/views/res_lang_views.xml 
+2025-03-11 00:13:43,511 1 INFO odoo odoo.modules.loading: loading base/views/res_partner_views.xml 
+2025-03-11 00:13:43,601 1 INFO odoo odoo.modules.loading: loading base/views/res_bank_views.xml 
+2025-03-11 00:13:43,630 1 INFO odoo odoo.modules.loading: loading base/views/res_country_views.xml 
+2025-03-11 00:13:43,668 1 INFO odoo odoo.modules.loading: loading base/views/res_currency_views.xml 
+2025-03-11 00:13:43,703 1 INFO odoo odoo.modules.loading: loading base/views/res_users_views.xml 
+2025-03-11 00:13:43,817 1 INFO odoo odoo.modules.loading: loading base/views/res_device_views.xml 
+2025-03-11 00:13:43,835 1 INFO odoo odoo.modules.loading: loading base/views/res_users_identitycheck_views.xml 
+2025-03-11 00:13:43,841 1 INFO odoo odoo.modules.loading: loading base/views/res_config_settings_views.xml 
+2025-03-11 00:13:43,848 1 INFO odoo odoo.modules.loading: loading base/views/report_paperformat_views.xml 
+2025-03-11 00:13:43,868 1 INFO odoo odoo.modules.loading: loading base/security/ir.model.access.csv 
+2025-03-11 00:13:44,047 1 INFO odoo odoo.modules.loading: Module base: loading demo 
+2025-03-11 00:13:44,048 1 INFO odoo odoo.modules.loading: loading base/data/res_users_demo.xml 
+2025-03-11 00:13:45,386 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_bank_demo.xml 
+2025-03-11 00:13:45,389 1 INFO odoo odoo.modules.loading: loading base/data/res_currency_demo.xml 
+2025-03-11 00:13:45,394 1 INFO odoo odoo.modules.loading: loading base/data/res_currency_rate_demo.xml 
+2025-03-11 00:13:45,522 1 INFO odoo odoo.modules.loading: loading base/data/res_bank_demo.xml 
+2025-03-11 00:13:45,525 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_demo.xml 
+2025-03-11 00:13:45,721 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_image_demo.xml 
+2025-03-11 00:13:46,144 1 INFO odoo odoo.modules.loading: Module base loaded in 7.18s, 8193 queries (+8193 other) 
+2025-03-11 00:13:46,145 1 INFO odoo odoo.modules.loading: 1 modules loaded in 7.18s, 8193 queries (+8193 extra) 
+2025-03-11 00:13:46,161 1 INFO odoo odoo.modules.loading: updating modules list 
+2025-03-11 00:13:46,162 1 INFO odoo odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2025-03-11 00:13:47,210 1 INFO odoo odoo.modules.loading: loading 12 modules... 
+2025-03-11 00:13:47,533 1 INFO odoo odoo.modules.loading: 12 modules loaded in 0.32s, 0 queries (+0 extra) 
+2025-03-11 00:13:47,790 1 INFO odoo odoo.modules.loading: Modules loaded. 
+2025-03-11 00:13:47,794 1 INFO odoo odoo.modules.registry: Registry changed, signaling through the database 
+2025-03-11 00:13:47,795 1 INFO odoo odoo.modules.registry: Registry loaded in 8.887s 
+2025-03-11 00:13:56,983 1 INFO odoo odoo.addons.base.models.ir_http: Generating routing map for key None 
+2025-03-11 00:13:57,142 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:13:57] "GET /web/login?redirect=/odoo? HTTP/1.1" 200 - 54 0.017 0.144
+2025-03-11 00:13:57,202 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:13:57] "GET /web/binary/company_logo HTTP/1.1" 200 - 5 0.001 0.045
+2025-03-11 00:13:57,248 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:13:57] "GET /web/webclient/translations/1741652037234 HTTP/1.1" 200 - 5 0.001 0.012
+2025-03-11 00:14:47,878 1 INFO odoo odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) starting 
+2025-03-11 00:14:47,913 1 INFO odoo odoo.addons.base.models.ir_attachment: filestore gc 61 checked, 0 removed 
+2025-03-11 00:14:47,955 1 INFO odoo odoo.addons.base.models.res_users: GC'd 0 user log entries 
+2025-03-11 00:14:47,963 1 INFO odoo odoo.addons.base.models.res_users: GC 'res.users.apikeys' delete 0 entries 
+2025-03-11 00:14:47,968 1 INFO odoo odoo.addons.base.models.res_device: GC device logs delete 0 entries 
+2025-03-11 00:14:47,970 1 INFO odoo odoo.addons.base.models.res_device: GC device logs delete 0 entries 
+2025-03-11 00:14:47,984 1 INFO odoo odoo.addons.base.models.res_users: GC 'auth_totp.device' delete 0 entries 
+2025-03-11 00:14:47,997 1 INFO odoo odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) done in 0.118s 
+2025-03-11 00:14:48,001 1 INFO odoo odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) processed 0 records, 0 records remaining 
+2025-03-11 00:14:48,006 1 INFO odoo odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) completed 
+2025-03-11 00:14:48,013 1 INFO odoo odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) starting 
+2025-03-11 00:14:48,017 1 INFO odoo odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) done in 0.003s 
+2025-03-11 00:14:48,020 1 INFO odoo odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) processed 0 records, 0 records remaining 
+2025-03-11 00:14:48,023 1 INFO odoo odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) completed 
+2025-03-11 00:16:36,408 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:16:36] "GET / HTTP/1.1" 303 - 4 0.002 0.005
+2025-03-11 00:16:36,423 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:16:36] "GET /odoo HTTP/1.1" 303 - 4 0.001 0.003
+2025-03-11 00:16:36,435 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:16:36] "GET /web/login?redirect=/odoo? HTTP/1.1" 200 - 6 0.001 0.005
+2025-03-11 00:16:36,446 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:16:36] "GET /web/binary/company_logo HTTP/1.1" 304 - 5 0.002 0.003
+2025-03-11 00:16:36,517 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:16:36] "GET /web/webclient/translations/1741652196513 HTTP/1.1" 200 - 5 0.001 0.003
+2025-03-11 00:16:37,717 1 INFO odoo werkzeug: 172.18.0.1 - - [11/Mar/2025 00:16:37] "GET /web/service-worker.js HTTP/1.1" 200 - 5 0.001 0.004
