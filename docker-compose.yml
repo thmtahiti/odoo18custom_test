@@ -16,7 +16,7 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
-    command: odoo -d odoo --db_user=odoo --db_password=odoo -i base
+    command: odoo -d odoo --db_user=odoo --db_password=odoo -i base, dark_mode_knk, spiffy_theme_backend
     restart: always
 
   db:

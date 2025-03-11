@@ -395,3 +395,150 @@
 2025-03-11 00:34:56,578 1 INFO odoo odoo.modules.loading: Modules loaded. 
 2025-03-11 00:34:56,582 1 INFO odoo odoo.modules.registry: Registry changed, signaling through the database 
 2025-03-11 00:34:56,583 1 INFO odoo odoo.modules.registry: Registry loaded in 8.803s 
+2025-03-11 00:48:32,706 1 INFO odoo odoo.service.server: Initiating shutdown 
+2025-03-11 00:48:32,706 1 INFO odoo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-03-11 00:48:32,746 1 INFO odoo odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 3 connections  
+2025-03-11 00:48:37,388 1 INFO ? odoo: Odoo version 18.0-20250218 
+2025-03-11 00:48:37,390 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2025-03-11 00:48:37,390 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/var/lib/odoo/addons/18.0', '/mnt/extra-addons'] 
+2025-03-11 00:48:37,390 1 INFO ? odoo: database: odoo@db:5432 
+2025-03-11 00:48:37,566 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2025-03-11 00:48:37,601 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/local/bin/wkhtmltoimage 
+2025-03-11 00:48:37,827 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 97ea99f2b59f:8069 
+2025-03-11 00:48:37,882 1 INFO odoo odoo.modules.loading: loading 1 modules... 
+2025-03-11 00:48:37,883 1 INFO odoo odoo.modules.loading: Loading module base (1/1) 
+2025-03-11 00:48:37,904 1 INFO odoo odoo.modules.registry: module base: creating or updating database tables 
+2025-03-11 00:48:38,367 1 INFO odoo odoo.modules.loading: loading base/data/res_bank.xml 
+2025-03-11 00:48:38,374 1 INFO odoo odoo.modules.loading: loading base/data/res.lang.csv 
+2025-03-11 00:48:38,542 1 INFO odoo odoo.modules.loading: loading base/data/res_lang_data.xml 
+2025-03-11 00:48:38,564 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_data.xml 
+2025-03-11 00:48:38,626 1 INFO odoo odoo.modules.loading: loading base/data/res_currency_data.xml 
+2025-03-11 00:48:39,046 1 INFO odoo odoo.modules.loading: loading base/data/res_company_data.xml 
+2025-03-11 00:48:39,054 1 INFO odoo odoo.modules.loading: loading base/data/res_users_data.xml 
+2025-03-11 00:48:40,057 1 INFO odoo odoo.modules.loading: loading base/data/report_paperformat_data.xml 
+2025-03-11 00:48:40,064 1 INFO odoo odoo.modules.loading: loading base/data/res_country_data.xml 
+2025-03-11 00:48:40,319 1 INFO odoo odoo.modules.loading: loading base/data/ir_demo_data.xml 
+2025-03-11 00:48:40,334 1 INFO odoo odoo.modules.loading: loading base/security/base_groups.xml 
+2025-03-11 00:48:40,530 1 INFO odoo odoo.modules.loading: loading base/security/base_security.xml 
+2025-03-11 00:48:40,642 1 INFO odoo odoo.modules.loading: loading base/views/base_menus.xml 
+2025-03-11 00:48:40,693 1 INFO odoo odoo.modules.loading: loading base/views/decimal_precision_views.xml 
+2025-03-11 00:48:40,708 1 INFO odoo odoo.modules.loading: loading base/views/res_config_views.xml 
+2025-03-11 00:48:40,715 1 INFO odoo odoo.modules.loading: loading base/data/res.country.state.csv 
+2025-03-11 00:48:41,356 1 INFO odoo odoo.modules.loading: loading base/views/ir_actions_views.xml 
+2025-03-11 00:48:41,491 1 INFO odoo odoo.modules.loading: loading base/views/ir_asset_views.xml 
+2025-03-11 00:48:41,512 1 INFO odoo odoo.modules.loading: loading base/views/ir_config_parameter_views.xml 
+2025-03-11 00:48:41,529 1 INFO odoo odoo.modules.loading: loading base/views/ir_cron_views.xml 
+2025-03-11 00:48:41,559 1 INFO odoo odoo.modules.loading: loading base/views/ir_cron_trigger_views.xml 
+2025-03-11 00:48:41,576 1 INFO odoo odoo.modules.loading: loading base/views/ir_filters_views.xml 
+2025-03-11 00:48:41,593 1 INFO odoo odoo.modules.loading: loading base/views/ir_mail_server_views.xml 
+2025-03-11 00:48:41,614 1 INFO odoo odoo.modules.loading: loading base/views/ir_model_views.xml 
+2025-03-11 00:48:41,759 1 INFO odoo odoo.modules.loading: loading base/views/ir_attachment_views.xml 
+2025-03-11 00:48:41,781 1 INFO odoo odoo.modules.loading: loading base/views/ir_rule_views.xml 
+2025-03-11 00:48:41,807 1 INFO odoo odoo.modules.loading: loading base/views/ir_sequence_views.xml 
+2025-03-11 00:48:41,829 1 INFO odoo odoo.modules.loading: loading base/views/ir_ui_menu_views.xml 
+2025-03-11 00:48:41,851 1 INFO odoo odoo.modules.loading: loading base/views/ir_ui_view_views.xml 
+2025-03-11 00:48:41,895 1 INFO odoo odoo.modules.loading: loading base/views/ir_default_views.xml 
+2025-03-11 00:48:41,914 1 INFO odoo odoo.modules.loading: loading base/data/ir_config_parameter_data.xml 
+2025-03-11 00:48:41,918 1 INFO odoo odoo.modules.loading: loading base/data/ir_cron_data.xml 
+2025-03-11 00:48:41,930 1 INFO odoo odoo.modules.loading: loading base/report/ir_model_report.xml 
+2025-03-11 00:48:41,933 1 INFO odoo odoo.modules.loading: loading base/report/ir_model_templates.xml 
+2025-03-11 00:48:41,941 1 INFO odoo odoo.modules.loading: loading base/views/ir_logging_views.xml 
+2025-03-11 00:48:41,959 1 INFO odoo odoo.modules.loading: loading base/views/ir_qweb_widget_templates.xml 
+2025-03-11 00:48:41,974 1 INFO odoo odoo.modules.loading: loading base/views/ir_module_views.xml 
+2025-03-11 00:48:42,019 1 INFO odoo odoo.modules.loading: loading base/data/ir_module_category_data.xml 
+2025-03-11 00:48:42,201 1 INFO odoo odoo.modules.loading: loading base/data/ir_module_module.xml 
+2025-03-11 00:48:42,232 1 INFO odoo odoo.modules.loading: loading base/report/ir_module_reports.xml 
+2025-03-11 00:48:42,236 1 INFO odoo odoo.modules.loading: loading base/report/ir_module_report_templates.xml 
+2025-03-11 00:48:42,243 1 INFO odoo odoo.modules.loading: loading base/wizard/base_module_update_views.xml 
+2025-03-11 00:48:42,256 1 INFO odoo odoo.modules.loading: loading base/wizard/base_language_install_views.xml 
+2025-03-11 00:48:42,268 1 INFO odoo odoo.modules.loading: loading base/wizard/base_import_language_views.xml 
+2025-03-11 00:48:42,279 1 INFO odoo odoo.modules.loading: loading base/wizard/base_module_upgrade_views.xml 
+2025-03-11 00:48:42,297 1 INFO odoo odoo.modules.loading: loading base/wizard/base_module_uninstall_views.xml 
+2025-03-11 00:48:42,308 1 INFO odoo odoo.modules.loading: loading base/wizard/base_export_language_views.xml 
+2025-03-11 00:48:42,321 1 INFO odoo odoo.modules.loading: loading base/wizard/base_partner_merge_views.xml 
+2025-03-11 00:48:42,336 1 INFO odoo odoo.modules.loading: loading base/data/ir_demo_failure_data.xml 
+2025-03-11 00:48:42,351 1 INFO odoo odoo.modules.loading: loading base/views/ir_profile_views.xml 
+2025-03-11 00:48:42,374 1 INFO odoo odoo.modules.loading: loading base/views/res_company_views.xml 
+2025-03-11 00:48:42,397 1 INFO odoo odoo.modules.loading: loading base/views/res_lang_views.xml 
+2025-03-11 00:48:42,420 1 INFO odoo odoo.modules.loading: loading base/views/res_partner_views.xml 
+2025-03-11 00:48:42,517 1 INFO odoo odoo.modules.loading: loading base/views/res_bank_views.xml 
+2025-03-11 00:48:42,548 1 INFO odoo odoo.modules.loading: loading base/views/res_country_views.xml 
+2025-03-11 00:48:42,589 1 INFO odoo odoo.modules.loading: loading base/views/res_currency_views.xml 
+2025-03-11 00:48:42,626 1 INFO odoo odoo.modules.loading: loading base/views/res_users_views.xml 
+2025-03-11 00:48:42,762 1 INFO odoo odoo.modules.loading: loading base/views/res_device_views.xml 
+2025-03-11 00:48:42,781 1 INFO odoo odoo.modules.loading: loading base/views/res_users_identitycheck_views.xml 
+2025-03-11 00:48:42,788 1 INFO odoo odoo.modules.loading: loading base/views/res_config_settings_views.xml 
+2025-03-11 00:48:42,797 1 INFO odoo odoo.modules.loading: loading base/views/report_paperformat_views.xml 
+2025-03-11 00:48:42,819 1 INFO odoo odoo.modules.loading: loading base/security/ir.model.access.csv 
+2025-03-11 00:48:43,006 1 INFO odoo odoo.modules.loading: Module base: loading demo 
+2025-03-11 00:48:43,008 1 INFO odoo odoo.modules.loading: loading base/data/res_users_demo.xml 
+2025-03-11 00:48:44,351 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_bank_demo.xml 
+2025-03-11 00:48:44,355 1 INFO odoo odoo.modules.loading: loading base/data/res_currency_demo.xml 
+2025-03-11 00:48:44,360 1 INFO odoo odoo.modules.loading: loading base/data/res_currency_rate_demo.xml 
+2025-03-11 00:48:44,488 1 INFO odoo odoo.modules.loading: loading base/data/res_bank_demo.xml 
+2025-03-11 00:48:44,492 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_demo.xml 
+2025-03-11 00:48:44,692 1 INFO odoo odoo.modules.loading: loading base/data/res_partner_image_demo.xml 
+2025-03-11 00:48:45,123 1 INFO odoo odoo.modules.loading: Module base loaded in 7.24s, 8191 queries (+8191 other) 
+2025-03-11 00:48:45,123 1 INFO odoo odoo.modules.loading: 1 modules loaded in 7.24s, 8191 queries (+8191 extra) 
+2025-03-11 00:48:45,140 1 INFO odoo odoo.modules.loading: updating modules list 
+2025-03-11 00:48:45,141 1 INFO odoo odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2025-03-11 00:48:46,263 1 INFO odoo odoo.modules.loading: loading 12 modules... 
+2025-03-11 00:48:46,597 1 INFO odoo odoo.modules.loading: 12 modules loaded in 0.33s, 0 queries (+0 extra) 
+2025-03-11 00:48:46,863 1 INFO odoo odoo.modules.loading: Modules loaded. 
+2025-03-11 00:48:46,866 1 INFO odoo odoo.modules.registry: Registry changed, signaling through the database 
+2025-03-11 00:48:46,867 1 INFO odoo odoo.modules.registry: Registry loaded in 9.039s 
+2025-03-11 01:03:45,225 1 INFO odoo odoo.service.server: Initiating shutdown 
+2025-03-11 01:03:45,226 1 INFO odoo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-03-11 01:03:45,235 1 INFO odoo odoo.sql_db: Connection to the database failed 
+2025-03-11 01:03:45,236 1 WARNING odoo odoo.addons.base.models.ir_cron: Exception in cron: 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_cron.py", line 132, in _process_jobs
+    with db.cursor() as cron_cr:
+         ^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 785, in cursor
+    return Cursor(self.__pool, self.__dbname, self.__dsn)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 288, in __init__
+    self._cnx = pool.borrow(dsn)
+                ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 712, in borrow
+    result = psycopg2.connect(
+             ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "db" (172.18.0.2), port 5432 failed: FATAL:  the database system is shutting down
+
+2025-03-11 01:03:45,237 1 INFO odoo odoo.sql_db: Connection to the database failed 
+2025-03-11 01:03:45,243 1 WARNING odoo odoo.addons.base.models.ir_cron: Exception in cron: 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_cron.py", line 132, in _process_jobs
+    with db.cursor() as cron_cr:
+         ^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 785, in cursor
+    return Cursor(self.__pool, self.__dbname, self.__dsn)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 288, in __init__
+    self._cnx = pool.borrow(dsn)
+                ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 712, in borrow
+    result = psycopg2.connect(
+             ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "db" (172.18.0.2), port 5432 failed: FATAL:  the database system is shutting down
+
+2025-03-11 01:03:45,430 1 INFO odoo odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 2 connections  
