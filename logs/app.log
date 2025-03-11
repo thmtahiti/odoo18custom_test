@@ -64,3 +64,76 @@ db-1    | 2025-03-11 00:13:12.570 UTC [62] LOG:  checkpoint starting: shutdown i
 db-1    | 2025-03-11 00:13:12.720 UTC [62] LOG:  checkpoint complete: wrote 1655 buffers (10.1%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.015 s, sync=0.130 s, total=0.153 s; sync files=754, longest=0.051 s, average=0.001 s; distance=14790 kB, estimate=14790 kB
 db-1    | 2025-03-11 00:13:12.725 UTC [1] LOG:  database system is shut down
 [Kdb-1 exited with code 0
+odoo-1  | Warn: Can't find .pfb for face 'Courier'
+db-1    | The files belonging to this database system will be owned by user "postgres".
+db-1    | This user must also own the server process.
+db-1    | 
+db-1    | The database cluster will be initialized with locale "en_US.utf8".
+db-1    | The default database encoding has accordingly been set to "UTF8".
+db-1    | The default text search configuration will be set to "english".
+db-1    | 
+db-1    | Data page checksums are disabled.
+db-1    | 
+db-1    | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-1    | creating subdirectories ... ok
+db-1    | selecting dynamic shared memory implementation ... posix
+db-1    | selecting default max_connections ... 100
+db-1    | selecting default shared_buffers ... 128MB
+db-1    | selecting default time zone ... Etc/UTC
+db-1    | creating configuration files ... ok
+db-1    | running bootstrap script ... ok
+db-1    | performing post-bootstrap initialization ... ok
+db-1    | initdb: warning: enabling "trust" authentication for local connections
+db-1    | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-1    | syncing data to disk ... ok
+db-1    | 
+db-1    | 
+db-1    | Success. You can now start the database server using:
+db-1    | 
+db-1    |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-1    | 
+db-1    | waiting for server to start....2025-03-11 17:56:24.259 UTC [48] LOG:  starting PostgreSQL 15.12 (Debian 15.12-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+db-1    | 2025-03-11 17:56:24.261 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1    | 2025-03-11 17:56:24.265 UTC [51] LOG:  database system was shut down at 2025-03-11 17:56:24 UTC
+db-1    | 2025-03-11 17:56:24.269 UTC [48] LOG:  database system is ready to accept connections
+db-1    |  done
+db-1    | server started
+db-1    | CREATE DATABASE
+db-1    | 
+db-1    | 
+db-1    | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1    | 
+db-1    | waiting for server to shut down....2025-03-11 17:56:24.431 UTC [48] LOG:  received fast shutdown request
+db-1    | 2025-03-11 17:56:24.433 UTC [48] LOG:  aborting any active transactions
+db-1    | 2025-03-11 17:56:24.434 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+db-1    | 2025-03-11 17:56:24.434 UTC [49] LOG:  shutting down
+db-1    | 2025-03-11 17:56:24.436 UTC [49] LOG:  checkpoint starting: shutdown immediate
+db-1    | 2025-03-11 17:56:24.491 UTC [49] LOG:  checkpoint complete: wrote 918 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.010 s, sync=0.040 s, total=0.057 s; sync files=301, longest=0.009 s, average=0.001 s; distance=4222 kB, estimate=4222 kB
+db-1    | 2025-03-11 17:56:24.495 UTC [48] LOG:  database system is shut down
+db-1    |  done
+db-1    | server stopped
+db-1    | 
+db-1    | PostgreSQL init process complete; ready for start up.
+db-1    | 
+db-1    | 2025-03-11 17:56:24.572 UTC [1] LOG:  starting PostgreSQL 15.12 (Debian 15.12-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+db-1    | 2025-03-11 17:56:24.572 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1    | 2025-03-11 17:56:24.572 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1    | 2025-03-11 17:56:24.577 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1    | 2025-03-11 17:56:24.581 UTC [64] LOG:  database system was shut down at 2025-03-11 17:56:24 UTC
+db-1    | 2025-03-11 17:56:24.585 UTC [1] LOG:  database system is ready to accept connections
+odoo-1  | Exception in thread odoo.service.cron.cron0:
+odoo-1  | Traceback (most recent call last):
+odoo-1  |   File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+odoo-1  |     self.run()
+odoo-1  |   File "/usr/lib/python3.12/threading.py", line 1010, in run
+odoo-1  |     self._target(*self._args, **self._kwargs)
+odoo-1  |   File "/usr/lib/python3/dist-packages/odoo/service/server.py", line 500, in target
+[Kodoo-1 exited with code 0
+db-1    | 2025-03-11 17:59:55.256 UTC [1] LOG:  received fast shutdown request
+db-1    | 2025-03-11 17:59:55.258 UTC [1] LOG:  aborting any active transactions
+db-1    | 2025-03-11 17:59:55.260 UTC [1] LOG:  background worker "logical replication launcher" (PID 67) exited with exit code 1
+db-1    | 2025-03-11 17:59:55.260 UTC [62] LOG:  shutting down
+db-1    | 2025-03-11 17:59:55.267 UTC [62] LOG:  checkpoint starting: shutdown immediate
+db-1    | 2025-03-11 17:59:55.397 UTC [62] LOG:  checkpoint complete: wrote 1717 buffers (10.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.012 s, sync=0.112 s, total=0.138 s; sync files=754, longest=0.035 s, average=0.001 s; distance=15106 kB, estimate=15106 kB
+db-1    | 2025-03-11 17:59:55.402 UTC [1] LOG:  database system is shut down
+[Kdb-1 exited with code 0
