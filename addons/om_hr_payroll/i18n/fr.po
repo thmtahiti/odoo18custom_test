@@ -1172,7 +1172,7 @@ msgstr ""
 #. module: om_hr_payroll
 #: model:ir.model.fields,field_description:om_hr_payroll.field_hr_payslip__name
 msgid "Payslip Name"
-msgstr "Nom de bulletin de paie"
+msgstr "Nom de bulletin de paie louiaa"
 
 #. module: om_hr_payroll
 #: model:ir.model,name:om_hr_payroll.model_hr_payslip_worked_days

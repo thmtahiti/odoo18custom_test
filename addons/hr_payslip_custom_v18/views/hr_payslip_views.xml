@@ -1,0 +1,88 @@
+<odoo>
+    <!-- Vue Formulaire -->
+    <record id="view_payslip_form" model="ir.ui.view">
+        <field name="name">payslip.custom.form</field>
+        <field name="model">hr.payslip.custom</field>
+        <field name="arch" type="xml">
+            <form string="Bulletin de Paie">
+                <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="base_salary"/>
+                        <field name="total_salary" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Détails de Paie">
+                            <field name="line_ids">
+                                <list string="Worked Days" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="base"/>
+                                    <field name="rate"/>
+                                    <field name="amount"/>
+                                </list>
+                                <form string="Worked Day">
+                                    <group col="4">
+                                        <field name="name"/>
+                                        <field name="base"/>
+                                        <field name="rate"/>
+                                        <field name="amount"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Détails des heures supp">
+                            <field name="line_supp_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="salaire_base"/>
+                                    <field name="taux_horaire"/>
+                                    <field name="pourcentage"/>
+                                    <field name="montant_horaire"/>
+                                    <field name="nbrs"/>
+                                    <field name="total"/>
+                                </list>
+                                <form>
+                                    <group col="4">
+                                        <field name="name"/>
+                                        <field name="salaire_base"/>
+                                        <field name="taux_horaire"/>
+                                        <field name="pourcentage"/>
+                                        <field name="montant_horaire"/>
+                                        <field name="nbrs"/>
+                                        <field name="total"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_payslip_tree" model="ir.ui.view">
+            <field name="name">hr.payslip.custom.list</field>
+            <field name="model">hr.payslip.custom</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="employee_id"/>
+                    <field name="base_salary"/>
+                    <field name="total_salary" readonly="1"/>
+                </list>
+            </field>
+        </record>
+
+
+    <!-- Action -->
+    <record id="action_payslip_custom" model="ir.actions.act_window">
+        <field name="name">Bulletins de Paie</field>
+        <field name="res_model">hr.payslip.custom</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_payslip_tree"/>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_hr_payslip_custom_root" name="Paie" sequence="10"/>
+    <menuitem id="menu_hr_payslip_custom" name="Bulletins de Paie" parent="menu_hr_payslip_custom_root" action="action_payslip_custom" sequence="20"/>
+</odoo>

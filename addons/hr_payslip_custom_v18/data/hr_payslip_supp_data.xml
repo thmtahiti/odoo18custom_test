@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Heures supplémentaires -->
+        <record id="payslip_supp_emp" model="hr.payslip.supp">
+
+            <field name="name">Heures supp 40e 47e</field>
+        </record>
+
+        <record id="payslip_supp_2" model="hr.payslip.supp">
+            <field name="payslip_id" ref="payslip_custom_1"/>
+            <field name="name">Heures supp Jours Fériés</field>
+            <field name="pourcentage">50.0</field>
+            <field name="nbrs">0.0</field>
+        </record>
+
+        <record id="payslip_supp_3" model="hr.payslip.supp">
+            <field name="payslip_id" ref="payslip_custom_1"/>
+            <field name="name">Heures supp Dimanche</field>
+            <field name="pourcentage">65.0</field>
+            <field name="nbrs">0.0</field>
+        </record>
+
+        <record id="payslip_supp_4" model="hr.payslip.supp">
+            <field name="payslip_id" ref="payslip_custom_1"/>
+            <field name="name">Heures supp Nuit</field>
+            <field name="pourcentage">100.0</field>
+            <field name="nbrs">0.0</field>
+        </record>
+    </data>
+</odoo>

@@ -6,7 +6,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8070:8069"
+      - "8069:8069"
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
@@ -16,7 +16,7 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
-    command: odoo -d odoo --db_user=odoo --db_password=odoo -i base
+    command: odoo -d odoo --db_user=odoo --db_password=odoo -i base -u hr_payslip_custom_v18 --load-language=fr_FR
     restart: always
 
   db:
