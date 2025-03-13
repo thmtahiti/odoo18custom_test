@@ -10,32 +10,18 @@ class PayslipCustom(models.Model):
     base_salary = fields.Float(string='Salaire de base', required=True)
     line_ids = fields.One2many('hr.payslip.line', 'payslip_id', string='Lignes de paie')
     line_supp_ids = fields.One2many('hr.payslip.supp', 'payslip_id', string='Lignes de supp')
+    line_conge_ids = fields.One2many('hr.payslip.cong', 'payslip_id', string='Lignes de cong')
     total_salary = fields.Float(string='Salaire total', compute='_compute_total_salary', store=True)
+    primeanciennete = fields.Float(string='Prime ancienneté', required=True, default=0.0)
 
     @api.depends('line_ids.amount')
     def _compute_total_salary(self):
         for record in self:
             record.total_salary = record.base_salary + sum(record.line_ids.mapped('amount'))
 
-class PayslipLine(models.Model):
-    _name = 'hr.payslip.line'
-    _description = 'Ligne de Bulletin de Paie'
-
-    payslip_id = fields.Many2one('hr.payslip.custom', string='Bulletin de Paie', required=True, ondelete="cascade")
-    name = fields.Char(string='Libellé', required=True)
-    base = fields.Float(string='Base de calcul', required=True, default=0.0)
-    rate = fields.Float(string='Taux (%)', required=True, default=0.0)
-    amount = fields.Float(string='Montant', compute='_compute_amount', store=True)
-
-    @api.depends('base', 'rate')
-    def _compute_amount(self):
-        for record in self:
-            record.amount = record.base + (record.base * record.rate / 100)
-
-
 class PayslipSupp(models.Model):
     _name = 'hr.payslip.supp'
-    _description = 'Heure supp'
+    _description = 'Gestion des heures supp'
 
     payslip_id = fields.Many2one('hr.payslip.custom', string='Bulletin de Paie', ondelete="cascade")
     name = fields.Char(string='Libellé', required=True)
@@ -63,3 +49,30 @@ class PayslipSupp(models.Model):
         """ Calcule le total en fonction du nombre d'heures et du montant horaire """
         for record in self:
             record.total = record.nbrs * record.montant_horaire
+
+class PayslipCong(models.Model):
+    _name = 'hr.payslip.cong'
+    _description = 'Gestion des congés'
+
+    payslip_id = fields.Many2one('hr.payslip.custom', string='Bulletin de Paie', ondelete="cascade")
+    name = fields.Char(string='Libellé', required=True)
+    motif = fields.Char(string='Motif', required=True)
+    nbrs = fields.Float(string='Nombre', default=0.0)
+    dates = fields.Char(string='Dates', required=True)
+
+class PayslipLine(models.Model):
+    _name = 'hr.payslip.line'
+    _description = 'Ligne de Bulletin de Paie'
+
+    payslip_id = fields.Many2one('hr.payslip.custom', string='Bulletin de Paie', required=True, ondelete="cascade")
+    name = fields.Char(string='Libellé', required=True)
+    base = fields.Float(string='Base de calcul', required=True, default=0.0)
+    rate = fields.Float(string='Taux (%)', required=True, default=0.0)
+    amount = fields.Float(string='Montant', compute='_compute_amount', store=True)
+
+    @api.depends('base', 'rate')
+    def _compute_amount(self):
+        for record in self:
+            record.amount = record.base + (record.base * record.rate / 100)
+
+
