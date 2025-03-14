@@ -7,13 +7,23 @@
             <form string="Bulletin de Paie">
                 <sheet>
                     <group>
+
                         <field name="employee_id"/>
                         <field name="base_salary"/>
-                        <field name="total_salary" readonly="1"/>
+
+
                     </group>
+
                     <notebook>
+                        <!-- PAGE HEURE SUPP -->
                         <page string="Heures supp, congés et primes.">
-                            <separator string="Gestion des heures"/>
+                            <separator string="Salaire brut"/>
+                            <group>
+                            <field name="base_salary" readonly="True"/>
+                            <field name="taux_horaire"/>
+                            </group>
+
+                            <separator string="Gestion des heures supplémentaires"/>
                             <field name="line_supp_ids">
                                 <list editable="bottom">
                                     <field name="name"/>
@@ -25,6 +35,8 @@
                                     <field name="total"/>
                                 </list>
                             </field>
+
+
                              <separator string="Gestion des congés"/>
                             <field name="line_conge_ids">
                                 <list editable="bottom">
@@ -34,10 +46,48 @@
                                     <field name="dates"/>
                                 </list>
                             </field>
-                            <separator string="Prime"/>
+
+                            <separator string="Totaux heures supp et prime"/>
                             <group>
+                                <field name="sum_total"/>
                                 <field name="primeanciennete"/>
+                                <field name="primeexceptionnelle"/>
                             </group>
+                            <separator string="Salaire brut soumis aux cotisations"/>
+                            <group>
+                                <field name="soldsoumiscotisation"/>
+                            </group>
+
+                        </page>
+
+                        <!-- PAGE COTISATIONS SALARIALES -->
+                        <page string="Cotisation Salariale">
+                            <separator string="Cotisation Salariale"/>
+                            <field name="line_salariale_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="base"/>
+                                    <field name="taux"/>
+                                    <field name="montant_cotis"/>
+                                </list>
+                            </field>
+                            <separator string="CST"/>
+                            <group>
+                                <field name="cst"/>
+                            </group>
+                            <separator string="TOTAL DES COTISATIONS, CST et NET"/>
+                            <group>
+                                <field name="sum_total_cotisation_salariale"/>
+                                <field name="soldsoumiscotisation"/>
+                                <field name="salaire_net"/>
+                            </group>
+
+                        </page>
+
+                        <!-- PAGE COTISATIONS SALARIALES -->
+                        <page string="Charges patronales">
+                        <separator string="Charges patronales"/>
+
                         </page>
                     </notebook>
                 </sheet>
@@ -53,7 +103,7 @@
                 <list>
                     <field name="employee_id"/>
                     <field name="base_salary"/>
-                    <field name="total_salary" readonly="1"/>
+
                 </list>
             </field>
         </record>

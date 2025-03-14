@@ -1,9 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_payslip_custom,Access Payslip Custom,model_hr_payslip_custom,,1,1,1,1
-access_payslip_line,Access Payslip Line,model_hr_payslip_line,,1,1,1,1
 access_payslip_supp_line,Access Payslip Supp Line,model_hr_payslip_supp,,1,1,1,1
 access_payslip_cong,Access Payslip Cong,model_hr_payslip_cong,,1,1,1,1
-
+access_payslip_cotisation,Access Payslip Cotisation,model_hr_payslip_cotisation,,1,1,1,1
 
 
 
