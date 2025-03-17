@@ -9,7 +9,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/hr_payslip_views.xml',
-        # 'data/hr_payslip_supp_data.xml',
+        'views/report_payslip_template.xml',
     ],
     'assets': {
         'web.assets_backend': [

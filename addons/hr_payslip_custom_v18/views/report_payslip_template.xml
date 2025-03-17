@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_payslip_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="payslip">
+                <div class="page">
+                    <h2 style="text-align: center;">Bulletin de Paie</h2>
+                    <p><strong>Nom :</strong> <t t-esc="payslip.employee_id.name"/></p>
+                    <p><strong>Poste :</strong> <t t-esc="payslip.employee_id.job_id.name"/></p>
+                    <p><strong>Période :</strong> <t t-esc="payslip.date_to.strftime('%Y-%m')"/></p>
+
+                    <h3>Détails du Salaire</h3>
+                    <ul>
+                        <li>Salaire de base : <t t-esc="format(payslip.base_salary, ',.2f')"/> F</li>
+                        <li>Prime Ancienneté : <t t-esc="format(payslip.primeanciennete, ',.2f')"/> F</li>
+                        <li>Prime Exceptionnelle : <t t-esc="format(payslip.primeexceptionnelle, ',.2f')"/> F</li>
+                        <li>Total soumis à cotisation : <t t-esc="format(payslip.soldsoumiscotisation, ',.2f')"/> F</li>
+                    </ul>
+
+                    <h3>Heures Supplémentaires</h3>
+                    <ul>
+                        <t t-foreach="payslip.line_supp_ids" t-as="line">
+                            <li><t t-esc="line.name"/>: <t t-esc="line.nbrs"/>h à <t t-esc="line.pourcentage"/>% - <t t-esc="format(line.total, ',.2f')"/> F</li>
+                        </t>
+                    </ul>
+
+                    <h3>Cotisations Salariales</h3>
+                    <ul>
+                        <t t-foreach="payslip.line_salariale_ids" t-as="cotisation">
+                            <li><t t-esc="cotisation.name"/>: <t t-esc="format(cotisation.montant_cotis, ',.2f')"/> F</li>
+                        </t>
+                    </ul>
+
+                    <h3>Cotisations Patronales</h3>
+                    <ul>
+                        <t t-foreach="payslip.line_patronales_ids" t-as="charge">
+                            <li><t t-esc="charge.libelle"/>: <t t-esc="format(charge.montant, ',.2f')"/> F</li>
+                        </t>
+                    </ul>
+
+                    <h3>Récapitulatif</h3>
+                    <ul>
+                        <li>Total Charges Salariales : <t t-esc="format(payslip.total_cotisation_salariales, ',.2f')"/> F</li>
+                        <li>Total Charges Patronales : <t t-esc="format(payslip.total_charges_patronales, ',.2f')"/> F</li>
+                        <li>Salaire Net : <t t-esc="format(payslip.salaire_net, ',.2f')"/> F</li>
+                        <li>CST : <t t-esc="format(payslip.cst, ',.2f')"/> F</li>
+                    </ul>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="report_hr_payslip_custom"
+        model="hr.payslip.custom"
+        string="Bulletin de Paie"
+        report_type="qweb-pdf"
+        file="hr_payslip_custom.report_payslip_template"
+        name="hr_payslip_custom.report_payslip_template"
+    />
+</odoo>

@@ -18,16 +18,104 @@ class PayslipCustom(models.Model):
     line_supp_ids = fields.One2many('hr.payslip.supp', 'payslip_id', string='Lignes de supp')
     line_conge_ids = fields.One2many('hr.payslip.cong', 'payslip_id', string='Lignes de cong')
     line_salariale_ids = fields.One2many('hr.payslip.cotisation', 'payslip_id', string='Lignes de cotisation salariale')
+    line_patronales_ids = fields.One2many('hr.payslip.payroll', 'payslip_id', string='Lignes de cotisation patronales')
+
 
     """ CHAMP CALCUL """
     soldsoumiscotisation = fields.Float(string='Total soumis à cotisation', compute='_compute_soldsoumiscotisation', store=True)
     taux_horaire = fields.Float(string='Taux Horaire', compute='_compute_taux_horaire', store=True)
     sum_total = fields.Float(string='Total heures supp, congés, et primes', compute='_compute_sum_amount', store=True)
     cst = fields.Float(string='CST', compute='_compute_impot', store=True)
-    sum_total_cotisation_salariale = fields.Float(string='Total des cotisations', compute='_compute_cotisation_salariale', store=True)
+    total_cotisation_salariales = fields.Float(string='Charges Salariales', compute='_compute_cotisation_salariale', store=True)
     salaire_net = fields.Float(string='Salaire NET après cotisations', compute='_compute_salaire_net', store=True)
+    total_charges_patronales = fields.Float(string='Charges patronales', compute='_compute_total_patronales', store=True)
 
     """ TOTAUX """
+
+    @api.model
+    def create(self, vals):
+        payslip = super(PayslipCustom, self).create(vals)
+
+        # Ajout des lignes de cotisations patronales
+        taux_defauts = [
+            {"libelle": "AT", "taux": 0.48},
+            {"libelle": "AM", "taux": 9.96},
+            {"libelle": "Retraite A", "taux": 15.69},
+            {"libelle": "FPC", "taux": 0.5},
+            {"libelle": "Fonds Sociale Retraite", "taux": 0.96},
+            {"libelle": "FSR Exception", "taux": 1.0},
+            {"libelle": "Prestations Familiales", "taux": 0.0},
+            {"libelle": "Retraite Tranche B", "taux": 11.62},
+            {"libelle": "A.V.T.S.", "taux": 0.00},
+        ]
+
+        for taux in taux_defauts:
+            self.env['hr.payslip.payroll'].create({
+                'payslip_id': payslip.id,
+                'libelle': taux["libelle"],
+                'taux': taux["taux"],
+            })
+
+        # Ajout des heures supplémentaires par défaut
+        heures_supp_defauts = [
+            {"name": "Heures supp 40e 47e", "pourcentage": 25.0},
+            {"name": "Heures supp Jours Fériés", "pourcentage": 50.0},
+            {"name": "Heures supp Dimanche", "pourcentage": 65.0},
+            {"name": "Heures supp Nuit", "pourcentage": 100.0},
+        ]
+
+        for heure in heures_supp_defauts:
+            self.env['hr.payslip.supp'].create({
+                'payslip_id': payslip.id,
+                'name': heure["name"],
+                'pourcentage': heure["pourcentage"],
+            })
+
+        # Ajout des congés par défaut
+        conges_defauts = [
+            {"name": "Arrêt maladie (carence)", "motif": "Maladie"},
+            {"name": "Arrêt maladie (nbre jrs et dates)", "motif": "Maladie"},
+            {"name": "Congés payés (nbre jrs et dates)", "motif": "Congé"},
+            {"name": "Indemnités de congés payés", "motif": "Indemnité"},
+        ]
+
+        for conge in conges_defauts:
+            self.env['hr.payslip.cong'].create({
+                'payslip_id': payslip.id,
+                'name': conge["name"],
+                'motif': conge["motif"],
+            })
+
+        # Ajout des cotisations salariales par défaut
+        cotisations_salariales_defauts = [
+            {"name": "Retraite tranche A", "taux": 7.84},
+            {"name": "Fonds Sociale Retraite", "taux": 0.0},
+            {"name": "Retraite tranche B", "taux": 5.81},
+            {"name": "Assurance Maladie", "taux": 4.98},
+        ]
+
+        for cotisation in cotisations_salariales_defauts:
+            self.env['hr.payslip.cotisation'].create({
+                'payslip_id': payslip.id,
+                'name': cotisation["name"],
+                'taux': cotisation["taux"],
+            })
+
+        _logger.info(f"Bulletin de paie {payslip.id} créé avec cotisations, heures supplémentaires et congés.")
+        return payslip
+
+    @api.onchange('payslip_id.soldsoumiscotisation')
+    def _onchange_soldsoumiscotisation(self):
+        """ Déclenche le recalcul des cotisations lorsque le salaire change. """
+        self._compute_cotisation()
+
+    @api.depends('line_patronales_ids.montant')
+    def _compute_total_patronales(self):
+        for payslip in self:
+            payslip.total_charges_patronales = sum(payslip.line_patronales_ids.mapped('montant'))
+
+
+
     @api.depends('line_supp_ids.total', 'sum_total')
     def _compute_sum_amount(self):
         """ Calcule du total des heures supp, congés et primes """
@@ -45,13 +133,13 @@ class PayslipCustom(models.Model):
         """ Calcule du sold costisation salariale """
         for record in self:
             cotisations = sum(record.line_salariale_ids.mapped('montant_cotis'))
-            record.sum_total_cotisation_salariale = cotisations
+            record.total_cotisation_salariales = cotisations
 
-    @api.depends('salaire_net','base_salary')
+    @api.depends('salaire_net','line_supp_ids.total', 'base_salary', 'primeanciennete', 'primeexceptionnelle')
     def _compute_salaire_net(self):
         """ Calcule du sold soumis à la cotisation """
         for record in self:
-            record.salaire_net = record.soldsoumiscotisation - record.sum_total_cotisation_salariale
+            record.salaire_net = record.soldsoumiscotisation - record.total_cotisation_salariales
 
 
     """ VALEUR BASE """
@@ -145,6 +233,8 @@ class HrPayslipCotisation(models.Model):
                 record.base = max(record.salaire_brut - 264000, 0)
             elif record.name == "Assurance Maladie":
                 record.base = record.salaire_brut
+            elif record.name == "Fonds Sociale Retraite":
+                record.base = record.salaire_brut
             else:
                 record.base = 0  # Cas par défaut
 
@@ -154,77 +244,55 @@ class HrPayslipCotisation(models.Model):
         for record in self:
             record.montant_cotis = record.base * (record.taux / 100)
 
+""" CHARGES PARTRONALES """
+
+from odoo import models, fields, api
+import logging
+
+_logger = logging.getLogger(__name__)
 
 class HrPayroll(models.Model):
     _name = 'hr.payslip.payroll'
     _description = 'Calcule des charges patronales'
 
     payslip_id = fields.Many2one('hr.payslip.custom', string='Bulletin de Paie', ondelete="cascade")
-    salaire_brut = fields.Float(related='payslip_id.soldsoumiscotisation')
+    libelle = fields.Char(string="Libellé de la cotisation", required=True)
+    taux = fields.Float(string="Taux (%)", required=True)
+    base = fields.Float(string='Base', compute='_compute_cotisation', store=True)
+    montant = fields.Float(string='Montant Cotisation', compute='_compute_cotisation', store=True)
 
-    base_fsre = fields.Float(string='FSRE', compute='_compute_cotisations')
-    base_at = fields.Float(string='AT', compute='_compute_cotisations')
-    base_am = fields.Float(string='AM', compute='_compute_cotisations')
-    base_ret_a = fields.Float(string='RET A', compute='_compute_cotisations')
-    base_fpc = fields.Float(string='FPC', compute='_compute_cotisations')
-    base_fsr = fields.Float(string='Fonds Sociale Retraite', compute='_compute_cotisations')
-    base_fsr_exception = fields.Float(string='FSR Exception', compute='_compute_cotisations')
-    base_prest_fam = fields.Float(string='Prestations Familiales', compute='_compute_cotisations')
-    base_ret_tranche_b = fields.Float(string='Retraite Tranche B', compute='_compute_cotisations')
-    base_avts = fields.Float(string='A.V.T.S.', compute='_compute_cotisations')
-
-    montant_at = fields.Float(string='Montant AT', compute='_compute_cotisations')
-    montant_am = fields.Float(string='Montant AM', compute='_compute_cotisations')
-    montant_ret_a = fields.Float(string='Montant RET A', compute='_compute_cotisations')
-    montant_fpc = fields.Float(string='Montant FPC', compute='_compute_cotisations')
-    montant_fsr = fields.Float(string='Montant Fonds Sociale Retraite', compute='_compute_cotisations')
-    montant_fsr_exception = fields.Float(string='Montant FSR Exception', compute='_compute_cotisations')
-    montant_prest_fam = fields.Float(string='Montant Prestations Familiales', compute='_compute_cotisations')
-    montant_ret_tranche_b = fields.Float(string='Montant Retraite Tranche B', compute='_compute_cotisations')
-    montant_avts = fields.Float(string='Montant A.V.T.S.', compute='_compute_cotisations')
-
-    total_cotisations = fields.Float(string='Total Cotisations', compute='_compute_cotisations')
-
-    taux = {
-        'at': 0.0048,
-        'am': 0.0996,
-        'ret_a': 0.1569,
-        'fpc': 0.005,
-        'fsr': 0.0096,
-        'fsr_exception': 0.01,
-        'prest_fam': 0.0333,
-        'ret_tranche_b': 0.1162,
-        'avts': 0.00  # Ce taux semble être variable selon "F58", à ajuster
-    }
-
-    @api.depends('salaire_brut')
-    def _compute_cotisations(self):
+    @api.depends('payslip_id.soldsoumiscotisation', 'libelle', 'taux')
+    def _compute_cotisation(self):
+        """ Calcule la base et le montant des cotisations en fonction du libellé et du taux """
         for record in self:
-            salaire = record.salaire_brut
+            salaire = record.payslip_id.soldsoumiscotisation
+            libelle = record.libelle.strip().lower()  # Nettoyage et conversion en minuscule
 
-            record.base_fsre = salaire
-            record.base_at = salaire
-            record.base_am = salaire
-            record.base_ret_a = salaire
-            record.base_fpc = salaire
-            record.base_fsr = salaire
-            record.base_fsr_exception = salaire - 100000 if salaire > 100000 else 0
-            record.base_prest_fam = salaire
-            record.base_ret_tranche_b = salaire - 264000 if salaire > 264000 else 0
-            record.base_avts = salaire if salaire > 195000 else 0
+            # Définition des bases selon le libellé
+            if "at" in libelle:
+                record.base = salaire
+            elif "fsr exception" in libelle:
+                record.base = max(salaire - 100000, 0)
+            elif "assurance maladie" in libelle or "am" in libelle:
+                record.base = salaire
+            elif "retraite a" in libelle:
+                record.base = min(salaire, 264000)
+            elif "fonds sociale retraite" in libelle or "fsr" in libelle:
+                record.base = min(salaire, 264000)  # Ajout de la règle FSR
+            elif "retraite tranche b" in libelle:
+                record.base = max(salaire - 264000, 0)
+            elif "prestations familiales" in libelle:
+                record.base = salaire if salaire < 750000 else 0
+            elif "fpc" in libelle:
+                record.base = salaire  # Ajout de la règle FPC
+            elif "avts" in libelle:
+                taux_f58 = record.taux  # Supposition que F58 est le taux stocké
+                record.base = salaire * taux_f58 if salaire > 195000 else 0
+            else:
+                record.base = 0  # Si le libellé ne correspond à rien, la base est 0
 
-            record.montant_at = record.base_at * self.taux['at']
-            record.montant_am = record.base_am * self.taux['am']
-            record.montant_ret_a = record.base_ret_a * self.taux['ret_a']
-            record.montant_fpc = record.base_fpc * self.taux['fpc']
-            record.montant_fsr = record.base_fsr * self.taux['fsr']
-            record.montant_fsr_exception = record.base_fsr_exception * self.taux['fsr_exception']
-            record.montant_prest_fam = record.base_prest_fam * self.taux['prest_fam']
-            record.montant_ret_tranche_b = record.base_ret_tranche_b * self.taux['ret_tranche_b']
-            record.montant_avts = record.base_avts * self.taux['avts']
+            # Calcul du montant de la cotisation
+            record.montant = record.base * (record.taux / 100)
 
-            record.total_cotisations = sum([
-                record.montant_at, record.montant_am, record.montant_ret_a, record.montant_fpc,
-                record.montant_fsr, record.montant_fsr_exception, record.montant_prest_fam,
-                record.montant_ret_tranche_b, record.montant_avts
-            ])
+
+

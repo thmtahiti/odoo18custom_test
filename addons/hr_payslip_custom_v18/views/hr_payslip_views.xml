@@ -10,7 +10,11 @@
 
                         <field name="employee_id"/>
                         <field name="base_salary"/>
-
+                        <separator string="Information"/>
+                        <field name="total_cotisation_salariales"/>
+                        <field name="total_charges_patronales"/>
+                        <field name="cst"/>
+                        <field name="salaire_net"/>
 
                     </group>
 
@@ -77,17 +81,30 @@
                             </group>
                             <separator string="TOTAL DES COTISATIONS, CST et NET"/>
                             <group>
-                                <field name="sum_total_cotisation_salariale"/>
+                                <field name="total_cotisation_salariales"/>
                                 <field name="soldsoumiscotisation"/>
                                 <field name="salaire_net"/>
+
                             </group>
 
                         </page>
-
                         <!-- PAGE COTISATIONS SALARIALES -->
                         <page string="Charges patronales">
                         <separator string="Charges patronales"/>
+                             <field name="line_patronales_ids">
+                                <list editable="bottom">
 
+                                    <field name="libelle"/>
+                                    <field name="taux"/>
+                                    <field name="base"/>
+                                    <field name="montant"/>
+                                </list>
+                            </field>
+                            <separator string="TOTAL CHARGES PATRONALES"/>
+                            <group>
+                                <field name="total_charges_patronales"/>
+
+                            </group>
                         </page>
                     </notebook>
                 </sheet>
