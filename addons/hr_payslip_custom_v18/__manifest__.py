@@ -9,11 +9,12 @@
     'data': [
         'security/ir.model.access.csv',
         'views/hr_payslip_views.xml',
-        'views/report_payslip_template.xml',
+        'views/report_payslip.xml',
+
     ],
     'assets': {
         'web.assets_backend': [
-            '/hr_payslip_custom/static/src/js/payslip_list.js',
+
         ],
     },
     'installable': True,

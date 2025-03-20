@@ -5,6 +5,9 @@
         <field name="model">hr.payslip.custom</field>
         <field name="arch" type="xml">
             <form string="Bulletin de Paie">
+                <header>
+                    <button name="print_payslip_report" type="object" string="Imprimer le Bulletin" class="btn-primary"/>
+                </header>
                 <sheet>
                     <group>
 

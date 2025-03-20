@@ -13,6 +13,8 @@ class PayslipCustom(models.Model):
     primeanciennete = fields.Float(string='Prime ancienneté', required=True, default=0.0)
     primeexceptionnelle = fields.Float(string='Prime exceptionnelle', required=True, default=0.0)
 
+    def print_payslip_report(self):
+        return self.env.ref('hr_payslip_custom_v18.report_payslip_template').report_action(self)
 
     """ LIGNE """
     line_supp_ids = fields.One2many('hr.payslip.supp', 'payslip_id', string='Lignes de supp')
@@ -112,7 +114,7 @@ class PayslipCustom(models.Model):
     @api.depends('line_patronales_ids.montant')
     def _compute_total_patronales(self):
         for payslip in self:
-            payslip.total_charges_patronales = sum(payslip.line_patronales_ids.mapped('montant'))
+            payslip.total_charges_patronales = round(sum(payslip.line_patronales_ids.mapped('montant')))
 
 
 
@@ -120,26 +122,28 @@ class PayslipCustom(models.Model):
     def _compute_sum_amount(self):
         """ Calcule du total des heures supp, congés et primes """
         for record in self:
-            record.sum_total = sum(record.line_supp_ids.mapped('total'))
+            record.sum_total = round(sum(record.line_supp_ids.mapped('total')))
 
     @api.depends('line_supp_ids.total', 'base_salary', 'primeanciennete', 'primeexceptionnelle')
     def _compute_soldsoumiscotisation(self):
         """ Calcule du sold soumis à la cotisation """
         for record in self:
-            record.soldsoumiscotisation = record.sum_total + record.base_salary + record.primeanciennete + record.primeexceptionnelle
+            record.soldsoumiscotisation = round(record.sum_total + record.base_salary + record.primeanciennete + record.primeexceptionnelle)
+
+
 
     @api.depends('line_salariale_ids.montant_cotis')
     def _compute_cotisation_salariale(self):
         """ Calcule du sold costisation salariale """
         for record in self:
-            cotisations = sum(record.line_salariale_ids.mapped('montant_cotis'))
+            cotisations = round(sum(record.line_salariale_ids.mapped('montant_cotis')))
             record.total_cotisation_salariales = cotisations
 
     @api.depends('salaire_net','line_supp_ids.total', 'base_salary', 'primeanciennete', 'primeexceptionnelle')
     def _compute_salaire_net(self):
         """ Calcule du sold soumis à la cotisation """
         for record in self:
-            record.salaire_net = record.soldsoumiscotisation - record.total_cotisation_salariales
+            record.salaire_net = round(record.soldsoumiscotisation - record.total_cotisation_salariales)
 
 
     """ VALEUR BASE """
@@ -147,7 +151,7 @@ class PayslipCustom(models.Model):
     def _compute_taux_horaire(self):
         """ Calcule le taux horaire en fonction du salaire de base et du nombre d'heures travaillées """
         for record in self:
-            record.taux_horaire = (record.base_salary / 169) if record.base_salary else 0.0
+            record.taux_horaire = round((record.base_salary / 169) if record.base_salary else 0.0)
 
     """ CST """
     @api.depends('soldsoumiscotisation')
@@ -191,13 +195,13 @@ class PayslipSupp(models.Model):
     def _compute_montant_horaire(self):
         """ Applique le pourcentage au taux horaire pour obtenir le montant horaire avec majoration """
         for record in self:
-            record.montant_horaire = record.taux_horaire * (1 + record.pourcentage / 100)
+            record.montant_horaire = round(record.taux_horaire * (1 + record.pourcentage / 100))
 
     @api.depends('nbrs', 'montant_horaire')
     def _compute_amount(self):
         """ Calcule le total en fonction du nombre d'heures et du montant horaire """
         for record in self:
-            record.total = record.nbrs * record.montant_horaire
+            record.total = round(record.nbrs * record.montant_horaire)
 
 """ CONGE """
 class PayslipCong(models.Model):
@@ -242,14 +246,9 @@ class HrPayslipCotisation(models.Model):
     def _compute_montant_cotis(self):
         """ Calcule le montant de la cotisation en fonction de la base et du taux """
         for record in self:
-            record.montant_cotis = record.base * (record.taux / 100)
+            record.montant_cotis = round(record.base * (record.taux / 100))
 
 """ CHARGES PARTRONALES """
-
-from odoo import models, fields, api
-import logging
-
-_logger = logging.getLogger(__name__)
 
 class HrPayroll(models.Model):
     _name = 'hr.payslip.payroll'
@@ -292,7 +291,7 @@ class HrPayroll(models.Model):
                 record.base = 0  # Si le libellé ne correspond à rien, la base est 0
 
             # Calcul du montant de la cotisation
-            record.montant = record.base * (record.taux / 100)
+            record.montant = round(record.base * (record.taux / 100))
 
 
 
