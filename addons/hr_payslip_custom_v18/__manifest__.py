@@ -10,6 +10,8 @@
         'security/ir.model.access.csv',
         'views/hr_payslip_views.xml',
         'views/report_payslip.xml',
+        'views/hr_society.xml',
+        'views/hr_employee.xml',
 
     ],
     'assets': {

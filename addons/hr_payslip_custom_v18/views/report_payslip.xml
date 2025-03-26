@@ -20,7 +20,10 @@
                 <main>
                     <t t-foreach="docs" t-as="object">
                         <div class="page">
+                            <field name="matriculecps"/>
+                            <field name="numerotahiti"/>
 
+                <field name="numerotahiti"/>
                             <h2 style="text-align: center; font-size: 20px; text-transform: uppercase;">
                                 Bulletin de Paie
                             </h2>
@@ -35,14 +38,6 @@
                                     <tr>
                                         <td style="font-weight: bold;">Salaire de base :</td>
                                         <td style="text-align:center;" t-esc="int(object.base_salary)"/>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-weight: bold;">Prime Ancienneté :</td>
-                                        <td style="text-align:center;" t-esc="int(object.primeanciennete)"/>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-weight: bold;">Prime Exceptionnelle :</td>
-                                        <td style="text-align:center;" t-esc="int(object.primeexceptionnelle)"/>
                                     </tr>
                                 </tbody>
                             </table>
@@ -172,7 +167,14 @@
                                     <strong><t t-esc="int(object.salaire_net)"/> XPF</strong>
                                 </td>
 </tr>
-
+<tr>
+                                <td style="font-weight: bold; background-color: #f0f0f0; padding: 8px; border: 1px solid #ddd;">
+                                    AVANCE :
+                                </td>
+                                <td style="text-align: center; padding: 8px; border: 1px solid #ddd; font-weight: bold; color: #000;">
+                                    <strong><t t-esc="int(object.avance)"/> XPF</strong>
+                                </td>
+</tr>
                             <hr style="border: 1px solid black; margin: 15px 0;"/>
                             <div style="text-align: left; font-style: italic; font-size: 12px;">
                                 <p>Dans votre intérêt et pour faire valoir vos droits, conservez ce bulletin de paye sans limitation de durée.</p>
@@ -183,7 +185,7 @@
                             <div style="display: flex; justify-content: space-between; margin-top: 20px;">
                                 <div>
                                     <strong><u>Signature du Gérant</u></strong><br/>
-                                    <span>Yves TERIITEMOEHAA</span>
+                                    <span>Yves TERIITEMOEHAA</span>cld
                                 </div>
                                 <br/>
                                 <br/>

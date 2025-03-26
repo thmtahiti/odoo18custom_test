@@ -1,0 +1,20 @@
+<odoo>
+            <record id="hr_employee_view_form_inherit_payslip" model="ir.ui.view">
+                <field name="name">hr.employee.view.form.inherit.payslip</field>
+                <field name="model">hr.employee</field>
+                <field name="inherit_id" ref="hr.view_employee_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='category_ids']" position="after">
+                        <field name="matricule"/>
+                        <field name="emploi"/>
+                        <field name="service"/>
+                        <field name="convention_collective"/>
+                        <field name="categorie"/>
+                        <field name="categorie_personnel"/>
+                        <field name="numero_dn"/>
+                    </xpath>
+                </field>
+            </record>
+
+
+</odoo>

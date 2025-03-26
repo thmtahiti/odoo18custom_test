@@ -1,5 +1,8 @@
 import logging
 from odoo import models, fields, api
+from datetime import date
+from dateutil.relativedelta import relativedelta
+import babel.dates
 
 _logger = logging.getLogger(__name__)
 
@@ -8,20 +11,51 @@ class PayslipCustom(models.Model):
     _description = 'Bulletin de Paie Personnalisé'
 
     name = fields.Char(string="Nom", required=True, default="Bulletin de Paie")
+
+    """ EMPLOYEE """
     employee_id = fields.Many2one('hr.employee', string='Employé', required=True)
+    matricule = fields.Char(string="Matricule", store="true", related="employee_id.matricule")
+    emploi = fields.Char(string="Emploi", store="true", related="employee_id.emploi")
+    service = fields.Char(string="Service", store="true", related="employee_id.service")
+    convention_collective = fields.Char(string="Convention Collective", store="true", related="employee_id.convention_collective")
+    categorie = fields.Char(string="Catégorie", store="true", related="employee_id.categorie")
+    echelon = fields.Char(string="Échelon", store="true", related="employee_id.echelon")
+    categorie_personnel = fields.Char(string="Catégorie de personnel", store="true", related="employee_id.categorie_personnel")
+    numero_dn = fields.Char(string="N° D.N", store="true", related="employee_id.numero_dn")
+
     base_salary = fields.Float(string='Salaire de base', required=True)
     primeanciennete = fields.Float(string='Prime ancienneté', required=True, default=0.0)
     primeexceptionnelle = fields.Float(string='Prime exceptionnelle', required=True, default=0.0)
+    avance = fields.Float(string='Avance', required=True, default=0.0)
 
+    company_id = fields.Many2one('res.company', required=True)
+
+    """ PERIODE """
     def print_payslip_report(self):
         return self.env.ref('hr_payslip_custom_v18.report_payslip_template').report_action(self)
+
+    date_entree = fields.Date(string="Date d'entrée")
+
+    periode_debut = fields.Date(
+        string="Début de période",
+        default=lambda self: date.today().replace(day=1)
+    )
+
+    periode_fin = fields.Date(
+        string="Fin de période",
+        default=lambda self: (date.today().replace(day=1) + relativedelta(months=1, days=-1))
+    )
+
+    mois_courant = fields.Char(
+        string="Mois concerné",
+        default=lambda self: babel.dates.format_date(date.today(), format="MMMM yyyy", locale='fr_FR')
+    )
 
     """ LIGNE """
     line_supp_ids = fields.One2many('hr.payslip.supp', 'payslip_id', string='Lignes de supp')
     line_conge_ids = fields.One2many('hr.payslip.cong', 'payslip_id', string='Lignes de cong')
     line_salariale_ids = fields.One2many('hr.payslip.cotisation', 'payslip_id', string='Lignes de cotisation salariale')
-    line_patronales_ids = fields.One2many('hr.payslip.payroll', 'payslip_id', string='Lignes de cotisation patronales')
-
+    line_patronales_ids = fields.One2many('hr.payslip.payroll', 'payslip_id', string='  Lignes de cotisation patronales')
 
     """ CHAMP CALCUL """
     soldsoumiscotisation = fields.Float(string='Total soumis à cotisation', compute='_compute_soldsoumiscotisation', store=True)
@@ -33,7 +67,6 @@ class PayslipCustom(models.Model):
     total_charges_patronales = fields.Float(string='Charges patronales', compute='_compute_total_patronales', store=True)
 
     """ TOTAUX """
-
     @api.model
     def create(self, vals):
         payslip = super(PayslipCustom, self).create(vals)
@@ -44,7 +77,7 @@ class PayslipCustom(models.Model):
             {"libelle": "AM", "taux": 9.96},
             {"libelle": "Retraite A", "taux": 15.69},
             {"libelle": "FPC", "taux": 0.5},
-            {"libelle": "Fonds Sociale Retraite", "taux": 0.96},
+            {"libelle": "A.M.E", "taux": 0.96},
             {"libelle": "FSR Exception", "taux": 1.0},
             {"libelle": "Prestations Familiales", "taux": 0.0},
             {"libelle": "Retraite Tranche B", "taux": 11.62},
@@ -91,7 +124,7 @@ class PayslipCustom(models.Model):
         # Ajout des cotisations salariales par défaut
         cotisations_salariales_defauts = [
             {"name": "Retraite tranche A", "taux": 7.84},
-            {"name": "Fonds Sociale Retraite", "taux": 0.0},
+            {"name": "A.M.E", "taux": 3.43},
             {"name": "Retraite tranche B", "taux": 5.81},
             {"name": "Assurance Maladie", "taux": 4.98},
         ]
@@ -116,8 +149,6 @@ class PayslipCustom(models.Model):
         for payslip in self:
             payslip.total_charges_patronales = round(sum(payslip.line_patronales_ids.mapped('montant')))
 
-
-
     @api.depends('line_supp_ids.total', 'sum_total')
     def _compute_sum_amount(self):
         """ Calcule du total des heures supp, congés et primes """
@@ -130,8 +161,6 @@ class PayslipCustom(models.Model):
         for record in self:
             record.soldsoumiscotisation = round(record.sum_total + record.base_salary + record.primeanciennete + record.primeexceptionnelle)
 
-
-
     @api.depends('line_salariale_ids.montant_cotis')
     def _compute_cotisation_salariale(self):
         """ Calcule du sold costisation salariale """
@@ -139,12 +168,11 @@ class PayslipCustom(models.Model):
             cotisations = round(sum(record.line_salariale_ids.mapped('montant_cotis')))
             record.total_cotisation_salariales = cotisations
 
-    @api.depends('salaire_net','line_supp_ids.total', 'base_salary', 'primeanciennete', 'primeexceptionnelle')
+    @api.depends('salaire_net','line_supp_ids.total', 'base_salary', 'primeanciennete', 'primeexceptionnelle','avance','cst')
     def _compute_salaire_net(self):
         """ Calcule du sold soumis à la cotisation """
         for record in self:
-            record.salaire_net = round(record.soldsoumiscotisation - record.total_cotisation_salariales)
-
+            record.salaire_net = round(record.soldsoumiscotisation - record.total_cotisation_salariales - record.avance - record.cst)
 
     """ VALEUR BASE """
     @api.depends('base_salary')
@@ -176,6 +204,7 @@ class PayslipCustom(models.Model):
                     cst += (limit - (tranches[i - 1][0] if i > 0 else 0)) * taux
 
             record.cst = cst
+
 
 """ HEURE SUPP """
 class PayslipSupp(models.Model):
@@ -237,7 +266,7 @@ class HrPayslipCotisation(models.Model):
                 record.base = max(record.salaire_brut - 264000, 0)
             elif record.name == "Assurance Maladie":
                 record.base = record.salaire_brut
-            elif record.name == "Fonds Sociale Retraite":
+            elif record.name == "A.M.E":
                 record.base = record.salaire_brut
             else:
                 record.base = 0  # Cas par défaut

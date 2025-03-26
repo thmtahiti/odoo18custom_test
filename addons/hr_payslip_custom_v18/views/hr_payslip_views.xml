@@ -10,16 +10,31 @@
                 </header>
                 <sheet>
                     <group>
-
+                        <group>
                         <field name="employee_id"/>
                         <field name="base_salary"/>
+                        <field name="matricule"/>
+                            
+                        <field name="emploi"/>
+                        <field name="service"/>
+                            </group>
+                         <group>
+                        <field name="convention_collective"/>
+                        <field name="categorie"/>
+                        <field name="categorie_personnel"/>
+                        <field name="numero_dn"/>
+                    </group>
+                     </group>
+
+
+                        <group>
                         <separator string="Information"/>
                         <field name="total_cotisation_salariales"/>
                         <field name="total_charges_patronales"/>
                         <field name="cst"/>
                         <field name="salaire_net"/>
 
-                    </group>
+                        </group>
 
                     <notebook>
                         <!-- PAGE HEURE SUPP -->
@@ -57,7 +72,9 @@
                             <separator string="Totaux heures supp et prime"/>
                             <group>
                                 <field name="sum_total"/>
+                                <field name="avance"/>
                                 <field name="primeanciennete"/>
+
                                 <field name="primeexceptionnelle"/>
                             </group>
                             <separator string="Salaire brut soumis aux cotisations"/>
@@ -123,6 +140,9 @@
                 <list>
                     <field name="employee_id"/>
                     <field name="base_salary"/>
+                    <field name="total_cotisation_salariales" sum="total_cotisation_salariales"/>
+                    <field name="total_charges_patronales" sum="total_charges_patronales"/>
+                    <field name="salaire_net" sum="salaire_net"/>
 
                 </list>
             </field>
